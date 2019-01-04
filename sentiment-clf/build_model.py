@@ -10,7 +10,7 @@ def build_model():
 
     # filename = os.path.join(
     #     os.path.dirname(__file__), 'chalicelib', 'all/train.tsv')
-    with open('../sentiment_data/train.tsv') as f:
+    with open('./lib/data/train.tsv') as f:
         data = pd.read_csv(f, sep='\t')
 
     pos_neg = data[(data['Sentiment'] == 0) | (data['Sentiment'] == 4)]
@@ -33,7 +33,7 @@ def build_model():
     model.pickle_clf()
     model.pickle_vectorizer()
 
-    model.plot_roc(X_test, y_test)
+    # model.plot_roc(X_test, y_test)
 
 
 if __name__ == "__main__":

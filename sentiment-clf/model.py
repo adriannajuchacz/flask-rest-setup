@@ -51,14 +51,14 @@ class NLPModel(object):
         y_pred = self.clf.predict(X)
         return y_pred
 
-    def pickle_vectorizer(self, path='chalicelib/models/TFIDFVectorizer.pkl'):
+    def pickle_vectorizer(self, path='./lib/models/TFIDFVectorizer.pkl'):
         """Saves the trained vectorizer for future use.
         """
         with open(path, 'wb') as f:
             pickle.dump(self.vectorizer, f)
             print("Pickled vectorizer at {}".format(path))
 
-    def pickle_clf(self, path='chalicelib/models/SentimentClassifier.pkl'):
+    def pickle_clf(self, path='./lib/models/SentimentClassifier.pkl'):
         """Saves the trained classifier for future use.
         """
         with open(path, 'wb') as f:
