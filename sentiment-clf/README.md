@@ -24,6 +24,36 @@ ___
       * data: directory that contains the data files from Kaggle
       * models: directory that contains the pickled model files
 
+## Testing the API with docker
+1. Run the Flask API locally for testing. Go to directory with `app.py`.
+
+```bash
+docker build -t ctl .
+docker run -d -p 5000:5000 ctl
+```
+
+
+2. In a new terminal window, use HTTPie to make a GET request at the URL of the API.
+
+```bash
+http http://127.0.0.1:5000/ query=="That was pretty entertaining"
+```
+
+
+3. Example of successful output.
+
+```bash
+HTTP/1.0 200 OK
+Content-Length: 57
+Content-Type: application/json
+Date: Tue, 21 Aug 2018 19:04:04 GMT
+Server: Werkzeug/0.14.1 Python/3.6.3
+
+{
+    "confidence": 0.78,
+    "prediction": "Positive"
+}
+```
 
 ## Testing the API
 1. Run the Flask API locally for testing. Go to directory with `app.py`.
